@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css')}}" />
+        <title>LoanInvestments</title>
+    </head>
+
+    <body>
+        <h1>LoanInvestments</h1>
+        <h2>V 2.0</h2>
+
+        <form action="/" method="POST">
+            <label for="amount"> Amount you need
+                <input type="number" min="10000" max="9999999" name="amount" id="amount" placeholder="Amount" required/>
+            </label>
+            <label for="rate"> Yearly rate (in %)
+                <select id="rate" name="rate" required>
+                    {% set start = 1 %}
+                    {% set end = 5 %}
+                    {% set step = 0.5 %}
+                    {% for i in range(start * 2, end * 2 + 1 ) %}
+                    <option value="{{ i / 2 }}">{{ i / 2 }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+            <label for="years"> Repayment Term (in years)
+                <select id="years" name="years" required>
+                    {% set start = 10 %}
+                    {% set end = 30 %}
+                    {% set step = 5 %}
+                    {% for i in range(start, end + 1, step) %}
+                    <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+            <button type="submit">Calculate</button>
+        </form>
+
+    <div class="answer">
+        {% if answer %}
+        {{ answer | safe }}
+        {% endif %}
+    </div>
+    </body>
+</html>

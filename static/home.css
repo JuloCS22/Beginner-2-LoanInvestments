@@ -1,0 +1,40 @@
+body {
+    font-family: verdana, serif;
+    padding: 5%;
+    text-align: center;
+}
+
+h2 {
+    position: fixed;
+    top: 5%;
+    right: 5%;
+    color: #EFCDAE;
+    font-size: small;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    margin: 5%;
+    border: none;
+    border-radius: 30px;
+    color: white;
+    height: 40px;
+    width: 80px;
+    background: #F18435;
+    transition: 0.3s ease-in-out;
+}
+
+button:hover {
+    width: 100px;
+}
+
+span {
+    color: #F18435;
+    font-weight: bold;
+}
